@@ -1,0 +1,20 @@
+app/
+├── (auth)/
+│   ├── login/
+│   └── register/
+├── (shop)/
+│   ├── catalog/
+│   ├── product/[slug]/
+│   └── cart/
+├── (account)/
+│   ├── dashboard/
+│   ├── orders/
+│   └── licenses/
+├── (admin)/
+│   ├── products/
+│   ├── orders/
+│   └── users/
+├── api/
+│   ├── app.ts
+│   └── routes/
+└── components/
