@@ -1,0 +1,54 @@
+{
+  "name": "softwaresales",
+  "version": "0.1.0",
+  "private": true,
+  "description": "E-commerce platform for software products",
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "docker:up": "docker compose -f infrastructure/docker-compose.yml up -d",
+    "docker:down": "docker compose -f infrastructure/docker-compose.yml down",
+    "docker:logs": "docker compose -f infrastructure/docker-compose.yml logs -f",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "turbo": "^1.11.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "typescript": "^5.3.3"
+    }
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml,css}": [
+      "prettier --write"
+    ]
+  }
+}
