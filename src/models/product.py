@@ -1,16 +1,16 @@
 # src/models/product.py
-from datetime import datetime
 from django.db import models
 from django.urls import reverse
 
 class Product(models.Model):
-    vendor_id = models.IntegerField()
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    vendor_id = models.UUIDField()
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
     description = models.TextField(blank=True)
     short_desc = models.CharField(max_length=255)
     category = models.CharField(max_length=255)
-    tags = models.CharField(max_length=255, blank=True)
+    tags = models.JSONField()
     is_published = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=datetime.utcnow)
     updated_at = models.DateTimeField(default=datetime.utcnow)
