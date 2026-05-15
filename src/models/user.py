@@ -5,9 +5,8 @@ from typing import Optional
 class User:
     def __init__(
         self,
-        id: int = None,
+        id: str = None,
         email: str = None,
-        password: str = None,
         name: str = None,
         role: str = "user",
         google_id: Optional[str] = None,
@@ -17,7 +16,6 @@ class User:
     ):
         self.id = id
         self.email = email
-        self.password = password
         self.name = name
         self.role = role
         self.google_id = google_id
